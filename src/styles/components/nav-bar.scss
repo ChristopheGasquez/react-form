@@ -1,0 +1,44 @@
+//////////////////////////////
+/////// NAV BAR STYLES ///////
+//////////////////////////////
+
+@import 'src/styles/variables/colors';
+
+
+.nav-bar {
+  position: sticky;
+  top: 0;
+
+  background-color: $primary;
+  color: $primary-ink;
+
+  &__list {
+    list-style: none;
+    text-align: center;
+    font-size: 1.5rem;
+
+    &__item {
+      display: inline-block;
+      padding: .5rem 1rem;
+
+      &--active {
+        border-bottom: .3rem solid $secondary;
+        color: $secondary;
+      }
+    }
+  }
+
+  .link {
+    &--as-text {
+      text-decoration: none;
+
+      &:visited {
+        color: inherit;
+      }
+
+      &:focus, &:visited {
+        color: $secondary;
+      }
+    }
+  }
+}

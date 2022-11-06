@@ -1,0 +1,12 @@
+//////////////////////////////
+/////////// FOOTER ///////////
+//////////////////////////////
+
+@import 'src/styles/variables/colors';
+
+.footer {
+  background-color: $shade--500;
+  color: $shade--300;
+  text-align: right;
+  padding: 5rem 1rem;
+}

@@ -1,0 +1,126 @@
+//////////////////////////////////////////
+//// 1 - CUSTOM PROPERTIES DEFINITION ////
+//////////////////////////////////////////
+
+@import 'src/styles/variables/index';
+@import 'src/styles/utils/index';
+
+// DEFINED LISTS
+$colors: (
+  'ink': $ink,
+  'surface': $surface,
+  'primary': $primary,
+  'primary-ink': $primary-ink,
+  'secondary': $secondary,
+  'secondary-ink': $secondary-ink,
+  'tertiary': $tertiary,
+  'tertiary-ink': $tertiary-ink,
+  'shade': $shade,
+  'shade-100': $shade--100,
+  'shade-200': $shade--200,
+  'shade-300': $shade--300,
+  'shade-400': $shade--400,
+  'shade-500': $shade--500,
+  'shade-600': $shade--600,
+  'shade-700': $shade--700,
+  'shade-800': $shade--800,
+  'shade-900': $shade--900,
+  'info': $info,
+  'success': $success,
+  'warning': $warning,
+  'error': $error,
+  'neutral': $neutral
+);
+
+$colors--light: (
+  'ink': $ink--light,
+  'surface': $surface--light,
+  'primary': $primary--light,
+  'primary-ink': $primary-ink--light,
+  'secondary': $secondary--light,
+  'secondary-ink': $secondary-ink--light,
+  'tertiary': $tertiary--light,
+  'tertiary-ink': $tertiary-ink--light,
+  'shade': $shade,
+  'shade-100': $shade--100,
+  'shade-200': $shade--200,
+  'shade-300': $shade--300,
+  'shade-400': $shade--400,
+  'shade-500': $shade--500,
+  'shade-600': $shade--600,
+  'shade-700': $shade--700,
+  'shade-800': $shade--800,
+  'shade-900': $shade--900,
+  'info': $info,
+  'success': $success,
+  'warning': $warning,
+  'error': $error,
+  'neutral': $neutral
+);
+
+$colors--dark: (
+  'ink': $ink--dark,
+  'surface': $surface--dark,
+  'primary': $primary--dark,
+  'primary-ink': $primary-ink--dark,
+  'secondary': $secondary--dark,
+  'secondary-ink': $secondary-ink--dark,
+  'tertiary': $tertiary--dark,
+  'tertiary-ink': $tertiary-ink--dark,
+  'shade': $shade,
+  'shade-100': $shade--100,
+  'shade-200': $shade--200,
+  'shade-300': $shade--300,
+  'shade-400': $shade--400,
+  'shade-500': $shade--500,
+  'shade-600': $shade--600,
+  'shade-700': $shade--700,
+  'shade-800': $shade--800,
+  'shade-900': $shade--900,
+  'info': $info,
+  'success': $success,
+  'warning': $warning,
+  'error': $error,
+  'neutral': $neutral
+);
+
+// DEFINED STANDARD CUSTOM PROPERTIES
+:root {
+  @include definedCustomPropertiesFromList($colors);
+}
+
+// DEFINED LIGHT CUSTOM PROPERTIES
+@media (prefers-color-scheme: light) {
+  :root {
+    @include definedCustomPropertiesFromList($colors--light);
+  }
+}
+
+// DEFINED DARK CUSTOM PROPERTIES
+@media (prefers-color-scheme: dark) {
+  :root {
+    @include definedCustomPropertiesFromList($colors--dark);
+  }
+}
+
+// DEFINED VARIABLES AS CUSTOM PROPERTIES
+$ink: var(--ink, $ink);
+$surface: var(--surface, $surface);
+$primary: var(--primary, $primary);
+$secondary: var(--secondary, $secondary);
+$tertiary: var(--tertiary, $tertiary);
+$shade: var(--shade, $shade);
+$shade-100: var(--shade-100, $shade--100);
+$shade-200: var(--shade-200, $shade--200);
+$shade-300: var(--shade-300, $shade--300);
+$shade-400: var(--shade-400, $shade--400);
+$shade-500: var(--shade-500, $shade--500);
+$shade-600: var(--shade-600, $shade--600);
+$shade-700: var(--shade-700, $shade--700);
+$shade-800: var(--shade-800, $shade--800);
+$shade-900: var(--shade-900, $shade--900);
+$info: var(--info, $info);
+$success: var(--success, $success);
+$warning: var(--warning, $warning);
+$error: var(--error, $error);
+$neutral: var(--neutral, $neutral);

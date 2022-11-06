@@ -1,0 +1,15 @@
+//////////////////////////////
+/////////// MIXINS ///////////
+//////////////////////////////
+
+/** __definedCustomPropertiesFromList__
+ *  Create for each item a new custom property.
+ *  Example:
+ *    For:    $myList: ('primary': red);
+ *    Result: --primary: red;
+ */
+@mixin definedCustomPropertiesFromList($list) {
+  @each $name, $value in $list {
+    --#{ $name }: #{ $value };
+  }
+}

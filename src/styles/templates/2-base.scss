@@ -1,0 +1,46 @@
+///////////////////////////////
+//////// 2 - BASE SCSS ////////
+///////////////////////////////
+
+@import 'src/styles/variables/index';
+
+// VIEW
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+#root, .app {
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+// BODY
+body {
+  background-color: $surface;
+  color: $ink;
+  font-family: 'Roboto Light', Arial, monospace;
+}
+
+// TITLE
+.title {
+  &--1 {
+    font-size: 3rem;
+  }
+  &--2 {
+    font-size: 2.5rem;
+  }
+  &--3 {
+    font-size: 2rem;
+  }
+  &--4 {
+    font-size: 1.5rem;
+  }
+  &--5 {
+    font-size: 1rem;
+  }
+  &--6 {
+    font-size: 1rem;
+    font-style: italic;
+  }
+}
