@@ -7,12 +7,12 @@
 // VIEW
 html, body {
   height: 100%;
-  width: 100%;
+  //width: 100%;
 }
 
 #root, .app {
   min-height: 100vh;
-  min-width: 100vw;
+  //min-width: 100vw;
 }
 
 // BODY
@@ -20,6 +20,16 @@ body {
   background-color: $surface;
   color: $ink;
   font-family: 'Roboto Light', Arial, monospace;
+}
+
+// FIELD SET
+fieldset {
+  border: solid 1px $ink;
+  padding: 1rem .5rem .5rem;
+  legend {
+    font-size: .9rem;
+    font-style: italic;
+  }
 }
 
 // TITLE

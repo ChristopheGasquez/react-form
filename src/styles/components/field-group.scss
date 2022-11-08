@@ -1,0 +1,37 @@
+///////////////////////////////
+////// FORM FIELD STYLES //////
+///////////////////////////////
+
+@import 'src/styles/variables/index';
+
+.field-group {
+
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+  margin-bottom: 1.3rem;
+
+  &__label {
+  }
+
+
+  &__input {
+    padding: .3rem;
+    font-size: .9rem;
+    &[type='color'] {
+      width: 100%;
+      padding: 0 .1rem;
+    }
+  }
+
+  &__alert {
+    font-size: .9rem;
+    $status: ('warning': $warning, 'error': $error, 'success': $success, 'info': $info, 'neutral': $neutral,);
+    @each $name, $value in $status {
+      &--#{ $name } {
+        color: #{ $value };
+      }
+
+    }
+  }
+}

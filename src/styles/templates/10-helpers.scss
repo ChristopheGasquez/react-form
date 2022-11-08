@@ -1,0 +1,25 @@
+///////////////////////////////
+//////// HELPERS CLASS ////////
+///////////////////////////////
+
+
+//// MARGIN / PADDING
+// Defined class names and properties names
+$mpRules: (
+  'mt': margin-top,
+  'mr': margin-right,
+  'mb': margin-bottom,
+  'ml': margin-left,
+  'pt': padding-top,
+  'pr': padding-right,
+  'pb': padding-bottom,
+  'pl': padding-left,
+);
+// Generation of rules
+@for $i from 1 through 5 {
+  @each $className, $propertyName in $mpRules {
+    .#{$className}--#{$i} {
+      #{$propertyName}: #{$i}rem;
+    }
+  }
+}

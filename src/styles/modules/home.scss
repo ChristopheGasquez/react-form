@@ -1,0 +1,12 @@
+.home {
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-around;
+
+    &__child {
+      flex-grow: 1;
+    }
+  }
+}
