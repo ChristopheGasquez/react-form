@@ -4,34 +4,47 @@
 
 @import 'src/styles/variables/index';
 
-.field-group {
+$status: ('warning': $warning, 'error': $error, 'success': $success, 'info': $info, 'neutral': $ink,);
 
+.field-group {
   display: flex;
   flex-direction: column;
   gap: .3rem;
   margin-bottom: 1.3rem;
 
-  &__label {
-  }
+  @each $name, $value in $status {
+    &--#{ $name } {
+      color: #{ $value };
 
-
-  &__input {
-    padding: .3rem;
-    font-size: .9rem;
-    &[type='color'] {
-      width: 100%;
-      padding: 0 .1rem;
+      .field-group__input {
+        border-color: #{$value};
+        outline: #{$value};
+      }
     }
   }
 
-  &__alert {
-    font-size: .9rem;
-    $status: ('warning': $warning, 'error': $error, 'success': $success, 'info': $info, 'neutral': $neutral,);
+  &__helper, &__alert {
+    line-height: .6rem;
+    font-size: .85rem;
+    font-style: italic;
+    padding-left: .3rem;
+
     @each $name, $value in $status {
       &--#{ $name } {
         color: #{ $value };
       }
+    }
+  }
 
+  &__input {
+    padding: .3rem;
+    border-radius: .3rem;
+    font-size: .9rem;
+    outline-color: $primary;
+
+    &[type='color'] {
+      width: 100%;
+      padding: 0 .1rem;
     }
   }
 }

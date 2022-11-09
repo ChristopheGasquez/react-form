@@ -5,7 +5,7 @@ import HomePreview from './home-preview.jsx';
 import HomeSetting from './home-setting.jsx';
 
 export default function Home() {
-  const [ formValue, setForm ] = useSessionState('homeForm', { title: 'My form', fake: ''});
+  const [ formValue, setForm ] = useSessionState('homeForm', { title: 'My form', fake: '', fake2: '', select: false });
 
   function handleFieldChange(event) {
     const target = event.target;
@@ -17,14 +17,18 @@ export default function Home() {
 
   function handleSubmit(event) {
     event.preventDefault();
+  }
 
+  function resetFrom() {
+    setForm({ title: 'My form', fake: '', fake2: '', select: '' });
   }
 
   return (
     <div className={ 'home' }>
       <Title level={ 1 }
              className={ 'mb--2' }>
-        Create your own form
+        Create your own form <button className={ 'button' }
+                                     onClick={ resetFrom }>Reset</button>
       </Title>
       {/* ====FLEX CONTAINER==== */ }
 

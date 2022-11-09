@@ -2,10 +2,34 @@ import React from 'react';
 import { FIELD_TYPE } from '../constants/field-type.jsx';
 import { setContainerClassName } from '../utils/attributs.jsx';
 
-export default function FieldInput({ fieldKey, fieldType, fieldValue, onChange, ...props }) {
+export default function FieldInput({ ...props }) {
+  const fieldKey = props?.fieldKey;
+  const disabled = props?.disabled;
+  const fieldType = props?.fieldType;
+  const fieldValue = props?.fieldValue;
+  const onChange = props?.onChange;
+  const onFocus = props?.onFocus;
+  const placeholder = props?.placeholder;
+  const options = props.options;
+  const max = props?.max;
+  const min = props?.min;
+  const rows = props.rows;
+  const cols = props.cols;
+  const step = props?.step;
 
   function getInput() {
-    switch (fieldType) {
+    const standardAttributes = {
+      ...setContainerClassName(props, 'field-input'),
+      id: fieldKey,
+      name: fieldKey,
+      type: fieldType,
+      value: fieldValue,
+      disabled: disabled,
+      placeholder: placeholder || null,
+      onChange: onChange,
+      onFocus: onFocus,
+    };
+    switch (props?.fieldType) {
       case FIELD_TYPE.COLOR:
       case FIELD_TYPE.DATE:
       case FIELD_TYPE.DATE_TIME_LOCAL:
@@ -19,32 +43,36 @@ export default function FieldInput({ fieldKey, fieldType, fieldValue, onChange, 
       case FIELD_TYPE.TIME:
       case FIELD_TYPE.URL:
       case FIELD_TYPE.WEEK: {
-        return <input { ...setContainerClassName(props, 'field-input') }
-                      id={ fieldKey }
-                      name={ fieldKey }
-                      type={ fieldType }
-                      value={ fieldValue }
-                      onChange={ onChange }
-                      placeholder={ props?.placeholder || null }/>;
+        return <input { ...standardAttributes }/>;
       }
 
       case FIELD_TYPE.NUMBER:
       case FIELD_TYPE.RANGE: {
-        return <input className={ 'field-set__input' }
-                      id={ fieldKey }
-                      name={ fieldKey }
-                      type={ fieldType }
-                      value={ fieldValue }
-                      onChange={ onChange }
-                      placeholder={ props?.placeholder || null }
-                      min={ props?.min || 0 }
-                      max={ props?.max || 100 }
-                      step={ props?.step || 1 }/>;
+        return <input { ...standardAttributes }
+                      min={ min || 0 }
+                      max={ max || 100 }
+                      step={ step || 1 }/>;
       }
       case FIELD_TYPE.TEXTAREA:
+        return <textarea { ...standardAttributes }
+                         cols={ cols }
+                         rows={ rows || 5 }/>;
       case FIELD_TYPE.FILE:
       case FIELD_TYPE.RADIO:
         break;
+
+      case FIELD_TYPE.SELECT: {
+        return <select { ...standardAttributes }>
+          {
+            options?.map((option) => {
+              return (<option key={ option?.label }
+                              value={ option?.value } { ...option.props }>
+                { option?.label }
+              </option>);
+            })
+          }
+        </select>;
+      }
 
       case FIELD_TYPE.RESET:
       case FIELD_TYPE.SUBMIT:
